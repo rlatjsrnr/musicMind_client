@@ -199,8 +199,9 @@ public class RoomController implements Initializable {
 					// clear버튼 클릭시
 					}else if(code.equals("r")) {
 						Client.mainClient.canvasController.clear();
+						
 					// 권한 설정
-					// a|true,ID 형태
+					// a|true,ID,pos 형태
 					// 그림 그릴 권한 설정에 사용
 					}else if(code.equals("a")) {
 						String[] s = text.split(",");

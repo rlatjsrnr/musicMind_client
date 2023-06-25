@@ -1,12 +1,3 @@
-/client/
-/dao/
-/game/
-/img/
-/join/
-/login/
-/media/
-/module-info.class
-/result/
-/room/
-/utils/
 /waitingRoom/
+/game/
+/room/

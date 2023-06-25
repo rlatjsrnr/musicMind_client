@@ -83,6 +83,7 @@ public class WaitingRoomController {
         	}
         });
         
+        // 방만들기
    	 	btnCreate.setOnAction(event -> {
         	try {
         		Client.mainClient.send("room", "create");
@@ -97,6 +98,7 @@ public class WaitingRoomController {
             }
         });
    	 	
+   	 	// 방 입장
         btnJoin.setOnAction(e->{
         	try {
 				ip = InetAddress.getByName(Client.SERVER_IP);
@@ -139,6 +141,7 @@ public class WaitingRoomController {
     		receive();
         });
         
+        // 대기실 채팅 
         btnSend.setOnAction(e->{
         	String message = textField.getText();
             // 채팅 메시지를 서버로 전송
@@ -146,10 +149,12 @@ public class WaitingRoomController {
             textField.clear();
         });
 
-        //nickname 전달        
+        // 대기실 프로필 설정       
         nickname.setText(Client.member.getMId());
         
+        // 랭킹 목록 출력
         loadRank();
+        
         gameTitle.setText("게임 대기실");
         
         textField.setOnKeyPressed(e->{
@@ -158,12 +163,13 @@ public class WaitingRoomController {
         	}
         });
         
+        // 랭킹 목록 갱신
         btnRefresh.setOnAction(e->{
         	 loadRank();
         });
         
     }
-
+    // 등록된 모든 사용자 랭킹 정보 가져옴
     private void loadRank() {
         mDao = new MemberDAOImpl();
         ArrayList<MemberVO> mDaoList = mDao.select();
@@ -183,7 +189,8 @@ public class WaitingRoomController {
         }
         rank.setText(rankStr);
 	}
-
+    
+    // 게임 방 소캣 receive
 	public void receive() {
 		Thread t = new Thread(()->{
 			while(true) {
@@ -231,9 +238,6 @@ public class WaitingRoomController {
  							roomEnterFail();
  						});
  						
-					// 클라이언트 textArea에 메시지 출력
-					}else if(code.equals("1")) {
-						// 일반 메세지 출력
 					// 게임 화면 채팅창에 메시지 출력
 					}else if(code.equals("2")){
 						Client.mainClient.canvasController.displayText(text);
@@ -255,8 +259,9 @@ public class WaitingRoomController {
 					// clear버튼 클릭시
 					}else if(code.equals("r")) {
 						Client.mainClient.canvasController.clear();
+						
 					// 권한 설정
-					// a|true,ID 형태
+					// a|true,ID,pos 형태
 					// 그림 그릴 권한 설정에 사용
 					}else if(code.equals("a")) {
 						String[] s = text.split(",");

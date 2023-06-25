@@ -285,6 +285,8 @@ public class CanvasController implements Initializable {
 			});
 		}
 		
+		// 출제자를 알려주는 turn, 정답자의 점수증가 이펙트 score
+		// 정답자의 증가한 점수를 모든 사용자에게 표시해줌
 		for(int i=0; i<list.size(); i++) {
 			final int j = i;
 			if(i != Integer.parseInt(pos)-1) {
@@ -409,6 +411,10 @@ public class CanvasController implements Initializable {
 				});
 			}
 		}
+		
+		// 서버에서 방 유저 목록을 hashtable에 저장함
+		// 사용자 리스트를 넘겨받으면 순서가 뒤죽박죽
+		// 사용자가 어디에 위치하고 있는지를 확인 및 저장
 		// 사용자 리스트에서 내 정보를 찾아 위치정보 저장
 		for(int i=0; i<list.size(); i++) {
 			if(list.get(i).getMId().equals(id)) {
@@ -473,6 +479,7 @@ public class CanvasController implements Initializable {
 		setSongTitle(myturn.musicTitle);
 	}
 	
+	// 첫 번째 시작버튼이 방장만 활성화 됨
 	public void setStartBtnDisable() {
 		btnStart.setDisable(false);
 	}
