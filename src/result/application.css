@@ -1,0 +1,35 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+
+
+*{
+	-fx-font-family: 'Do Hyeon', sans-serif;
+	
+}
+.table-view .column-header,
+.table-view .table-cell{
+	-fx-font-family: 'Do Hyeon', sans-serif;
+	-fx-font-size: 20;
+	-fx-background-color : #ffffff;
+	-fx-border-color:#cccccc;
+	-fx-alignment :center; 
+	-fx-border-width :0.5px;
+}
+
+.table-view .column-header{
+	-fx-background-color : #ffee38;
+}
+
+.button{
+	-fx-font-size: 15;
+	-fx-background-color : white;
+	-fx-border-color : black;
+	-fx-background-radius:10;
+	-fx-border-radius:10;
+	-fx-border-width:2;
+}
+
+.table-view .table-row-cell:filled:selected:focused .text {
+    -fx-fill: #ff0000;
+}

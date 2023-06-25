@@ -1,0 +1,11 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+*{-fx-font-family: 'Do Hyeon', sans-serif;}
+
+#gameTitle{
+	-fx-font-weight : bold;
+}
+.list-cell{
+	-fx-font: 18pt "Arial";
+}

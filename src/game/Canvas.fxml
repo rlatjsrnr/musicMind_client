@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.CanvasController">
+   <children>
+      <ImageView fitHeight="818.0" fitWidth="1000.0" pickOnBounds="true">
+         <image>
+            <Image url="@img/back.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <bottom>
+            <AnchorPane prefHeight="200.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextArea fx:id="txtArea" editable="false" prefHeight="180.0" prefWidth="700.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextArea>
+                  <TextField fx:id="txtInput" layoutY="175.0" prefHeight="23.0" prefWidth="619.0" />
+                  <Button fx:id="btnSend" layoutX="618.0" layoutY="175.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="82.0" text="보내기" />
+                  <AnchorPane layoutX="716.0" prefHeight="200.0" prefWidth="266.0" style="-fx-border-color: black;">
+                     <children>
+                        <ImageView fitHeight="104.0" fitWidth="105.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/Moremi-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblID" alignment="CENTER" layoutX="14.0" layoutY="143.0" prefHeight="35.0" prefWidth="104.0">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="130.0" layoutY="61.0" text="POINT : ">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblPoint" layoutX="208.0" layoutY="61.0" text="0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="5.0" />
+               </BorderPane.margin>
+            </AnchorPane>
+         </bottom>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <top>
+            <VBox alignment="CENTER" prefHeight="86.0" prefWidth="996.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="100.0" text="뮤직마인드">
+                     <font>
+                        <Font size="59.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <AnchorPane prefHeight="573.0" prefWidth="694.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ProgressBar fx:id="progress" layoutX="14.0" layoutY="424.0" prefHeight="18.0" prefWidth="512.0" progress="0.0" />
+                  <Label fx:id="lblTime" alignment="CENTER" layoutX="536.0" layoutY="421.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ColorPicker fx:id="pick" layoutX="22.0" layoutY="452.0" />
+                  <Slider fx:id="slider" layoutX="22.0" layoutY="480.0" prefHeight="24.0" prefWidth="182.0" showTickMarks="true" />
+                  <AnchorPane style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-width: 3;">
+                     <children>
+                        <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@img/bonobono.png" />
+                           </image>
+                        </ImageView>
+                        <Canvas fx:id="canvas" height="400.0" width="600.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Canvas>
+                        <Label fx:id="lblSongTitle" layoutX="7.0" layoutY="7.0" prefHeight="50.0" style="-fx-border-color: black;" text="노래 제목을 맞춰보세요">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblSongCnt" alignment="CENTER" layoutX="505.0" layoutY="7.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black;" text="1/10">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="btnClear" layoutX="218.0" layoutY="450.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="71.0" style="-fx-background-color: white;" text="Clear" />
+                  <Button fx:id="btnEraser" layoutX="147.0" layoutY="452.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="57.0" style="-fx-background-color: white;" text="지우개" />
+                  <Button fx:id="btnStart" disable="true" layoutX="445.0" layoutY="457.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="85.0" style="-fx-background-color: #ffd9d9;" text="시작">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="btnClose" layoutX="543.0" layoutY="457.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="63.0" style="-fx-background-color: #d7ffcc;" text="나가기">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+               </children>
+            </AnchorPane>
+         </center>
+         <right>
+            <StackPane BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="7.0" />
+               </BorderPane.margin>
+               <children>
+                  <VBox prefHeight="486.0" prefWidth="350.0" spacing="5.0">
+                     <children>
+                        <HBox fx:id="userBox1" alignment="CENTER_LEFT" style="-fx-border-color: black;" visible="false">
+                           <children>
+                              <VBox alignment="CENTER" prefWidth="150.0" styleClass="imgBox">
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/Moremi-removebg-preview.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="lblID1">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <Label text="점수 : ">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="lblScore1" text="0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="userBox2" alignment="CENTER_LEFT" style="-fx-border-color: black;" visible="false">
+                           <children>
+                              <VBox alignment="CENTER" prefWidth="150.0" styleClass="imgBox">
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/Moremi-removebg-preview.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="lblID2">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <Label text="점수 : ">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="lblScore2" text="0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="userBox3" alignment="CENTER_LEFT" style="-fx-border-color: black;" visible="false">
+                           <children>
+                              <VBox alignment="CENTER" prefWidth="150.0" styleClass="imgBox">
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/Moremi-removebg-preview.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="lblID3">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <Label text="점수 : ">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="lblScore3" text="0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="userBox4" alignment="CENTER_LEFT" style="-fx-border-color: black;" visible="false">
+                           <children>
+                              <VBox alignment="CENTER" prefWidth="150.0" styleClass="imgBox">
+                                 <children>
+                                    <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/Moremi-removebg-preview.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="lblID4">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <Label text="점수 : ">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="lblScore4" text="0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="score1" fitHeight="60.0" fitWidth="60.0" layoutX="261.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@img/score.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="score2" fitHeight="60.0" fitWidth="60.0" layoutX="261.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@img/score.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="score3" fitHeight="60.0" fitWidth="60.0" layoutX="261.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@img/score.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="score4" fitHeight="60.0" fitWidth="60.0" layoutX="261.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@img/score.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="turn1" fitHeight="150.0" fitWidth="60.0" layoutX="65.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true" rotate="14.0" visible="false">
+                           <image>
+                              <Image url="@img/crown.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="turn2" fitHeight="150.0" fitWidth="60.0" layoutX="29.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" rotate="-20.6" visible="false">
+                           <image>
+                              <Image url="@img/crown.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="turn3" fitHeight="150.0" fitWidth="60.0" layoutX="46.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@img/crown.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="turn4" fitHeight="150.0" fitWidth="60.0" layoutX="46.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@img/crown.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </right>
+      </BorderPane>
+   </children>
+</StackPane>
